@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: auto-update
+  group: vpn-configs-update
   cancel-in-progress: true
 
 jobs:

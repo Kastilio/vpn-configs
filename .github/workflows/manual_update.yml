@@ -3,6 +3,10 @@ name: Manual Update
 on:
   workflow_dispatch:
 
+concurrency:
+  group: vpn-configs-update
+  cancel-in-progress: false
+
 jobs:
   update-files:
     runs-on: ubuntu-latest

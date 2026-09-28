@@ -116,7 +116,7 @@ def update_readme_table(repo_stats: dict | None = None):
             source_name = extract_source_name(url)
             source_column = f"[{source_name}]({url})"
         else:
-            source_name = "Обход SNI/CIDR белых списков"
+            source_name = "Настройка SNI/CIDR"
             source_column = f"[{source_name}]({raw_file_url})"
 
         if i in updated_files:
