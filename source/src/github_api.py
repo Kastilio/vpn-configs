@@ -1,5 +1,5 @@
 from src.logger import log
-from src.config import GITHUB_TOKEN, REPO_NAME
+from src.config import GITHUB_STATS_TOKEN, REPO_NAME
 
 # -------------------- GITHUB API (только для статистики) --------------------
 _repo_stats_client = None
@@ -14,13 +14,13 @@ def _ensure_initialized():
         return
     _initialized = True
 
-    if not GITHUB_TOKEN:
-        log("⚠️ MY_TOKEN не задан — статистика репозитория недоступна")
+    if not GITHUB_STATS_TOKEN:
+        log("⚠️ GITHUB_STATS_TOKEN не задан — статистика репозитория недоступна")
         return
 
     try:
         from github import Github, Auth
-        _repo_stats_client = Github(auth=Auth.Token(GITHUB_TOKEN))
+        _repo_stats_client = Github(auth=Auth.Token(GITHUB_STATS_TOKEN))
         REPO = _repo_stats_client.get_repo(REPO_NAME)
         try:
             remaining, limit = _repo_stats_client.rate_limiting

@@ -37,7 +37,7 @@ EXTRA_URLS_FOR_26 = _load_json_list(URLS_26_PATH, [])
 # Создаём папку зеркала, если она не существует
 os.makedirs(GITHUBMIRROR_DIR, exist_ok=True)
 
-GITHUB_TOKEN = os.environ.get("MY_TOKEN")
+GITHUB_TOKEN = os.environ.get("GITHUB_STATS_TOKEN")
 REPO_NAME = "Kastilio/vpn-configs"
 
 EXTRA_URL_TIMEOUT = int(os.environ.get("EXTRA_URL_TIMEOUT", "6"))
