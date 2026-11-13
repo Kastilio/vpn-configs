@@ -139,6 +139,8 @@ def update_readme_table(repo_stats: dict | None = None):
     table_pattern = r"\| № \| Файл \| Источник \| Время \| Дата \|[\s\S]*?\|--\|--\|--\|--\|--\|[\s\S]*?(\n\n## |$)"
     new_content = re.sub(table_pattern, new_table + r"\1", old_content)
 
+    if repo_stats is None:
+        repo_stats = get_repo_stats()
     if repo_stats:
         stats_section = "## 📊 Статистика репозитория\n" + build_repo_stats_table(repo_stats) + "\n"
         stats_pattern = r"## 📊 Статистика репозитория\s*\n[\s\S]*?(?=\n## |\Z)"
